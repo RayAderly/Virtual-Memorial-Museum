@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виртуальный Музей памяти — Брестская крепость</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('img/20211029161043259_foto327.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .back-to-home-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+        .back-to-home-btn:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        h1 {
+            font-family: 'Pattaya', sans-serif;
+            font-style: italic;
+            font-size: 56px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        hr.header-line {
+            width: 100%;
+            height: 4px; 
+            background-color: #cc3333; 
+            border: none;
+            margin: 20px 0 40px 0; 
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 35px; 
+            margin: 40px auto;
+            max-width: 95%;
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        .content-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .white-block {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-sizing: border-box;
+            color: #333333;
+            line-height: 1.6;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .thin-top-block {
+            width: 100%;
+            padding: 15px 30px;
+        }
+        .white-square-box {
+            width: 350px;
+            height: 350px;
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; 
+            z-index: 2; 
+        }
+        .white-square-box:hover {
+            transform: scale(1.15); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .white-square-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+        .side-text-block {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.4s ease, opacity 0.4s ease; 
+            transform-origin: center right; 
+        }
+        .content-row[style*="row-reverse"] .side-text-block {
+            transform-origin: center left;
+        }
+
+        .white-square-box:hover + .side-text-block {
+            transform: scale(0.95); /* Уменьшаем на 5% */
+            opacity: 0.85; 
+        }
+        .content-row .white-square-box:hover ~ .side-text-block {
+            transform: scale(0.95);
+            opacity: 0.85;
+        }
+        .side-text-block h2 {
+            margin-top: 0;
+            color: #2b2b2b;
+        }
+        .buttons-group {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .site-button, .video-button, .audio-button {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: background 0.2s;
+        }
+        .site-button {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        .site-button:hover {
+            background-color: #555555;
+        }
+        .video-button {
+            background-color: #cc3333;
+            color: #ffffff;
+        }
+        .video-button:hover {
+            background-color: #e64c4c;
+        }
+        .audio-button {
+            background-color: #cc3333;
+            color: #ffffff;
+        }
+        .audio-button:hover {
+            background-color: #e64c4c;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .content-row {
+                flex-direction: column !important;
+            }
+            .white-square-box {
+                width: 100%;
+                height: 300px;
+			}
+            
+            .white-square-box:hover {
+                transform: none;
+            }
+            .white-square-box:hover + .side-text-block,
+            .content-row .white-square-box:hover ~ .side-text-block {
+                transform: none;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-home-btn">← Назад</a>
+    <h1 align="center" style="margin-top: 40px;">Экспонат №4.</h1>
+    <hr class="header-line">
+    <div class="main-container">
+
+        <div class="white-block thin-top-block">
+            <p style="margin: 0;">Легендарная Брестская крепость навсегда вошла в историю как цитадель бессмертного подвига, где каждый камень хранит память о невероятном героизме советских солдат в первые дни Великой Отечественной войны.</p>
+        </div>
+
+        <div class="content-row">
+            <div class="white-square-box">
+                <img src="img/brest-fortress2-scaled-1.jpg" alt="Брестская крепость">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Мемориальный комплекс "Брестская крепость-герой".</h2>
+                    <p>Строительство Брест-Литовской крепости началось в 1833 году по приказу императора Николая I, а торжественное открытие первоклассной цитадели Российской империи состоялось в 1842 году. Главной и самой драматичной вехой в её истории стала героическая оборона в июне — июле 1941 года, когда застигнутый врасплох советский гарнизон сковал значительные силы гитлеровских войск и проявил беспримерное мужество. За этот бессмертный подвиг в 1965 году крепости было присвоено почетное звание «Крепость-герой», а в 1971 году на ее территории открылся величественный мемориальный комплекс.</p>
+                </div>
+                <div class="buttons-group">
+                    <a href="https://www.brest-fortress.by/" target="_blank" class="site-button">Официальный сайт крепости</a>
+                    <a href="https://ru.wikipedia.org/wiki/%D0%91%D1%80%D0%B5%D1%81%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D1%8C" class="site-button">История крепости</a>
+                    <a href="https://youtu.be/brN6Q6L6MLg?si=CJWaIqGbR-v_eWeA" target="_blank" class="video-button">Посмотреть видеоэкскурсию</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row" style="flex-direction: row-reverse;">
+            <div class="white-square-box">
+                <img src="img/picture.jpg" alt="Хатынь - Венцы срубов и колокола">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Картина "Оборона Брестской крепости в 1941 году".</h2>
+
+                    <p>Картина «Оборона Брестской крепости» была написана советским художником-баталистом Петром Кривоноговым в 1951 году и стала одним из главных символов стойкости советских воинов. Мастер лично посетил разрушенную цитадель, чтобы с максимальной точностью воссоздать атмосферу ожесточенных боев у Тереспольских ворот. Сегодня это легендарное полотно, передающее драматизм первых дней войны, хранится в Центральном музее Вооруженных Сил РФ в Москве.</p>
+                </div>
+                <div class="buttons-group">
+                <a href="https://libmogilev.by/virtual-exhibitions/picture-zaitsev-01.html" target="_blank" class="site-button">Посмотреть историю картины</a>
+				<a href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D1%89%D0%B8%D1%82%D0%BD%D0%B8%D0%BA%D0%B8_%D0%91%D1%80%D0%B5%D1%81%D1%82%D1%81%D0%BA%D0%BE%D0%B9_%D0%BA%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82%D0%B8" target="_blank" class="site-button">Ознакомиться с другой картиной автора</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="white-square-box">
+                <img src="img/vechniyogon.png" alt="Брестская крепость">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Вечные огни: Брестская крепость-герой.</h2>
+                    <p>Вечный огонь в Брестской крепости был торжественно зажжен 25 сентября 1971 года в день открытия грандиозного мемориального комплекса. Частицу пламени для него доставили от Вечного огня на площади Победы в Минске, а почетное право зажечь огонь в цитадели доверили Петру Климуку — первому белорусскому космонавту и уроженцу Брестчины. Священное пламя горит в самом сердце мемориала, у подножия штыка-обелиска, в окружении гранитных плит, под которыми покоятся останки защитников крепости. Сегодня у этого мемориала несут почетную вахту памяти брестские школьники, сохраняя живую связь поколений.</p>
+                </div>
+                <div class="buttons-group">
+                    <a href="https://sp.sb.by/brest" target="_blank" class="site-button">История вечного огня</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row" style="flex-direction: row-reverse;">
+            <div class="white-square-box">
+                <img src="img/902.jpg" alt="Хатынь - Венцы срубов и колокола">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Монумент «Жажда» в Брестской крепости.</h2>
+
+                    <p>Монумент «Жажда» был открыт в 1971 году в составе мемориального комплекса и посвящен драматическому эпизоду обороны, когда защитники крепости, лишенные водопровода и блокированные немецким огнем у реки, гибли в попытках добыть глоток воды. Скульптура длиной 13 метров изображает раненого советского бойца, который из последних сил ползет к реке Мухавец, опираясь на автомат и протягивая каску к воде.</p>
+                </div>
+                <div class="buttons-group">
+                <a href="https://bibldrog.by/blog/podvig-sovetskogo-soldata-monument-zhazhda-v-brestskoj-kreposti/06/22/2021/" target="_blank" class="site-button">История монумента</a>
+				<a href="https://youtu.be/b9OdYVmA0ss?si=iiopWHmXP9S_YqZ2" target="_blank" class="video-button">Посмотреть видео</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

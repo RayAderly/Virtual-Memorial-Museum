@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Виртуальный Музей памяти</title>
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+<style>
+body {
+    background-image: url('img/20211029161043259_foto327.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+.back-to-home-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+.back-to-home-btn:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+h1 {
+    font-family: 'Pattaya', sans-serif;
+    font-style: italic;
+    font-size: 56px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.thin-line {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 40px 0; 
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px; 
+    margin: 40px auto;
+    max-width: 95%;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.white-block {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: #333333;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.thin-top-block {
+    width: 100%;
+    padding: 15px 30px;
+}
+.content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.white-square-box {
+    width: 350px;
+    height: 350px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+}
+.white-square-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 14px;
+    display: block;
+}
+.side-text-block {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, font-size 0.4s ease, box-shadow 0.4s ease; 
+}
+.side-text-block h2 {
+    margin-top: 0;
+}
+
+.white-square-box:hover {
+    transform: scale(1.15); 
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10;
+}
+.white-square-box:hover + .side-text-block {
+    transform: scale(0.95);
+    font-size: 0.9em;       
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.buttons-group {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.site-button, .video-button {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s;
+}
+.site-button {
+    background-color: #333333;
+    color: #ffffff;
+}
+.site-button:hover {
+    background-color: #555555;
+}
+.video-button {
+    background-color: #cc3333;
+    color: #ffffff;
+}
+.video-button:hover {
+    background-color: #e64c4c;
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-to-home-btn">← Назад</a>
+<h1>Экспонат №2.</h1>
+<div class="thin-line"></div>
+<div class="main-container">
+<div class="white-block thin-top-block">
+<p style="margin: 0;">Здесь вас ждет настоящий парад блеска и отваги — от суровых партизанских наград до главных современных орденов и медалей Беларуси!</p>
+</div>
+<div class="content-row">
+<div class="white-square-box">
+<img src="img/Hero_of_Belarus_medal_obverse.jpg" alt="Картинка экспоната 1" style="object-fit: contain;">
+</div>
+<div class="white-block side-text-block">
+<div>
+<h2>Медаль "Герой Беларуси".</h2>
+<p>Медаль «Герой Беларуси» была учреждена в 1995 году и является высшей степенью отличия в стране, присуждаемой за исключительные заслуги перед государством и обществом. Первым этой награды в 1996 году был посмертно удостоен военный летчик Владимир Карват, который ценой собственной жизни увел падающий самолет от жилых домов. В 2014 году звание получила биатлонистка Дарья Домрачева, ставшая первой in истории женщиной-Героем Беларуси после триумфального завоевания трех золотых медалей на Олимпийских играх в Сочи.</p>
+</div>
+<div class="buttons-group">
+<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B4%D0%B0%D0%BB%D1%8C_%D0%93%D0%B5%D1%80%D0%BE%D1%8F_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8" target="_blank" class="site-button">Больше про медаль</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC%D1%80%D0%B0%D1%87%D0%B5%D0%B2%D0%B0,_%D0%94%D0%B0%D1%80%D1%8C%D1%8F_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%BD%D0%B0" target="_blank" class="site-button">Дарья Домрачева</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%B2%D0%B0%D1%82,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Владимир Карват</a>
+<a href="https://youtu.be/HLl-tV-PxVA?si=q_YHrPZEipPTIMS5" target="_blank" class="video-button">Посмотреть видео</a>
+</div>
+</div>
+</div>
+<div class="content-row">
+<div class="white-square-box">
+<img src="img/Bel.Ord.Otech.1.jpg" alt="Картинка экспоната 2" style="object-fit: contain;">
+</div>
+<div class="white-block side-text-block">
+<div>
+<h2>Орден Отечества.</h2>
+<p>Орден Отечества является высшим орденом Республики Беларусь, который имеет три степени и присуждается последовательно (от III к I) за выдающиеся заслуги в развитии страны, укреплении ее могущества или проявленное мужество. Легендарная спортсменка Екатерина Карстен (академическая гребля) вошла в историю как самый первый полный кавалер этого ордена, получив все три его степени после своих многочисленных олимпийских триумфов. Видный государственный деятель и соратник президента Виктор Шейман также был удостоен этой высшей награды в разные периоды своей карьеры за вклад в государственное строительство и обеспечение национальной безопасности.</p>
+</div>
+<div class="buttons-group">
+<a href="https://dic.academic.ru/dic.nsf/ruwiki/1077359" target="_blank" class="site-button">Больше про орден</a>
+<a href="http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%81%D1%82%D0%B5%D0%BD,_%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B0_%D0%90%D0%BD%D0%B0%D1%82%D0%BE%D0%BB%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0" target="_blank" class="site-button">Екатерина Карстен</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B9%D0%BC%D0%B0%D0%BD,_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Виктор Шейман</a>
+</div>
+</div>
+</div>
+<div class="content-row">
+<div class="white-square-box">
+<img src="img/Orden_Francisca_Scorina.jpg" alt="Картинка экспоната 3" style="object-fit: contain;">
+</div>
+<div class="white-block side-text-block">
+<div>
+<h2>Орден Франциска Скорины.</h2>
+<p>Орден Франциска Скорины — одна из первых государственных наград независимой Беларуси, учрежденная в 1995 году для поощрения за выдающиеся заслуги в развитии национальной культуры, искусства, науки и благотворительности. Первым кавалером ордена in 1997 году стал легендарный белорусский художник Михаил Савицкий, а среди других знаменитых белорусов этой награды удостоен культовый музыкант и создатель ансамбля «Песняры» Владимир Мулявин.</p>
+</div>
+<div class="buttons-group">
+<a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%80%D0%B4%D0%B5%D0%BD_%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%B0_%D0%A1%D0%BA%D0%BE%D1%80%D0%B8%D0%BD%D1%8B" target="_blank" class="site-button">Больше про орден</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BD%D0%B0%D0%B3%D1%80%D0%B0%D0%B6%D0%B4%D1%91%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE%D1%80%D0%B4%D0%B5%D0%BD%D0%BE%D0%BC_%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%B0_%D0%A1%D0%BA%D0%BE%D1%80%D0%B8%D0%BD%D1%8B_(1997%E2%80%942006)" target="_blank" class="site-button">Список награждённых</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D0%B8%D1%86%D0%BA%D0%B8%D0%B9,_%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB_%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B5%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Михаил Савицкий</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%9C%D1%83%D0%BB%D1%8F%D0%B2%D0%B8%D0%BD,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D0%B5%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Владимир Мулявин</a>
+</div>
+</div>
+</div>
+<div class="content-row">
+<div class="white-square-box">
+<img src="img/Order_of_the_Patriotic_War_(1st_class).png" alt="Картинка экспоната 2">
+</div>
+<div class="white-block side-text-block">
+<div>
+<h2>Орден Отечественной войны.</h2>
+<p>Орден Отечественной войны — это первая советская награда, учрежденная в период Великой Отечественной войны (в мае 1942 года), которая вручалась за мужество, храбрость и партизанские заслуги в освобождении родины, включая территорию Беларуси. Этим орденом I степени были награждены выдающиеся белорусские подпольщики и партизанские лидеры: Пётр Миронович Машеров (руководитель подполья в Россонах), Кирилл Трофимович Мазуров (член Минского подпольного обкома) и посмертно Вера Захаровна Хоружая (один из главных символов белорусского Сопротивления).</p>
+</div>
+<div class="buttons-group">
+<a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%80%D0%B4%D0%B5%D0%BD_%D0%9E%D1%82%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9_%D0%B2%D0%BE%D0%B9%D0%BD%D1%8B" target="_blank" class="site-button">Больше про орден</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%88%D0%B5%D1%80%D0%BE%D0%B2,_%D0%9F%D1%91%D1%82%D1%80_%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D0%BE%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Пётр Миронович Машеров</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%B7%D1%83%D1%80%D0%BE%D0%B2,_%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB_%D0%A2%D1%80%D0%BE%D1%84%D0%B8%D0%BC%D0%BE%D0%B2%D0%B8%D1%87" target="_blank" class="site-button">Кирилл Трофимович Мазуров</a>
+<a href="https://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D1%80%D1%83%D0%B6%D0%B0%D1%8F,_%D0%92%D0%B5%D1%80%D0%B0_%D0%97%D0%B0%D1%85%D0%B0%D1%80%D0%BE%D0%B2%D0%BD%D0%B0" target="_blank" class="site-button">Вера Захаровна Хоружая</a>
+<a href="https://youtu.be/Y0GPqMuPbOk?si=2C7sIcfzp_p7MxOr" class="video-button">Посмотреть видео</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

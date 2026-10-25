@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Виртуальный Музей памяти</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('img/20211029161043259_foto327.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif; 
+            margin: 0;
+            padding: 0;
+        }
+        .back-to-home-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+        .back-to-home-btn:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        h1 {
+            font-family: 'Pattaya', sans-serif;
+            font-style: italic;
+            font-size: 56px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 50px; 
+            margin: 40px auto;
+            max-width: 95%;
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        .white-block {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-sizing: border-box;
+            color: #333333;
+            line-height: 1.6;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .thin-top-block {
+            width: 100%;
+            padding: 15px 30px;
+        }
+        .content-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .white-square-box {
+            width: 350px;
+            height: 350px;
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; 
+        }
+        .white-square-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+        .side-text-block {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.4s ease, font-size 0.4s ease, box-shadow 0.4s ease; 
+        }
+        
+        
+
+        .white-square-box:hover {
+            transform: scale(1.15);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+            position: relative;
+            z-index: 10; 
+        }
+
+        .white-square-box:hover + .side-text-block {
+            transform: scale(0.95);
+            font-size: 0.9em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .side-text-block h2 {
+            margin-top: 0;
+        }
+        .buttons-group {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .site-button, .video-button {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: background 0.2s;
+        }
+        .site-button {
+            background-color: #333333;
+            color: #ffffff;
+            margin-top: 15px;
+        }
+        .site-button:hover {
+            background-color: #555555;
+        }
+        .buttons-group .site-button {
+            margin-top: 0;
+        }
+        .video-button {
+            background-color: #cc3333;
+            color: #ffffff;
+        }
+        .video-button:hover {
+            background-color: #e64c4c;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-home-btn">← Назад</a>
+    <h1 align="center">Экспонат №1.</h1>
+    <hr>
+    <div class="main-container">
+        <div class="white-block thin-top-block">
+            <p style="margin: 0;">На этой странице представлены подлинные фронтовые письма белорусских солдат времен Великой Отечественной войны и знаменитая Витебская берестяная грамота — первая и старейшая находка средневековой письменности в Беларуси.</p>
+        </div>
+        
+        <div class="content-row">
+            <div class="white-square-box">
+                <img src="img/Віцебская_берасцяная_грамата.jpg" alt="Картинка экспоната 1">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Витебская берестяная грамота.</h2>
+                    <p>Витебская берестяная грамота — уникальный памятник письменности конца XIII века, найденный in 1959 году при раскопках на площади Свободы в Витебске. Текст содержит обращение Степана к Меху с просьбой купить жито, что дает бесценные сведения о повседневной жизни, торговле и развитию языка жителей древней Беларуси. Более подробно узнать о содержании этого исторического артефакта, расшифровке текста и истории его открытия можно на специализированном историческом сайте. </p>
+                </div>
+                <div class="buttons-group">
+                    <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%82%D0%B5%D0%B1%D1%81%D0%BA%D0%B0%D1%8F_%D0%B1%D0%B5%D1%80%D0%B5%D1%81%D1%82%D1%8F%D0%BD%D0%B0%D1%8F_%D0%B3%D1%80%D0%B0%D0%BC%D0%BE%D1%82%D0%B0" target="_blank" class="site-button">Перейти на сайт</a>
+                    <a href="https://youtu.be/CwT7OL8Mff8?si=_1UmyXY_dtK5MXtC" target="_blank" class="video-button">Посмотреть видео</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-row">
+            <div class="white-square-box">
+                <img src="img/pisma_s_brontu_26.jpg" alt="Картинка экспоната 2">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Фронтовые письма Изоитко Игнатия Николаевича</h2>
+                    <p>Изоитко Игнатий Николаевич (1923–1945) — участник Великой Отечественной войны, уроженец деревни Шуневцы Глубокского района. В составе 48-й гвардейской стрелковой дивизии он проявил исключительное мужество в боях наводчиком станкового пулемёта, за что был награждён Орденом Славы III степени. К сожалению, в апреле 1945 года гвардеец скончался от полученных ран в Восточной Пруссии.</p>
+                    <p>знакомиться с подлинной историей его судьбы, а также прочесть трогательные оцифрованные фронтовые письма бойца к родным можно по кнопке ниже.</p>
+                </div>
+                <a href="https://glubmusej.by/ru/pisma-s-fronta" target="_blank" class="site-button">Перейти на сайт</a>
+            </div>
+        </div>
+        
+        <div class="content-row">
+            <div class="white-square-box">
+                <img src="img/08.jpg" alt="Картинка экспоната 3">
+            </div>
+            <div class="white-block side-text-block">
+                <div>
+                    <h2>Разве это всё?</h2>
+                    <p>— думаем мы, глядя на скромный фронтовой треугольник, но за его короткими строчками скрывается вся глубина человеческой трагедии и мужества. Услышать живые голоса защитников и прикоснуться к подлинной истории поколения победителей вы можете по кнопке ниже, где собраны уникальные письма и открытки белорусов с фронта.</p>
+                </div>
+                <a href="https://victorychronicle.belta.by/letter" target="_blank" class="site-button">Перейти на сайт</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
